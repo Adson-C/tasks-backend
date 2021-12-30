@@ -18,8 +18,10 @@ pipeline {
         }
         stage ('API Test') {
             steps {
+                dir('api-test') {
                 git credentialsId: 'github_login', url: 'https://github.com/Adson-C/tasks-api-rest'
                 bat 'mvn test'
+                }
             }
         }  
     }
